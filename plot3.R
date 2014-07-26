@@ -20,6 +20,6 @@ TidyData <- dcast(meltData, year + type ~ variable, sum)
 png(file="plot3.png", width=1050, height=960)
 plot <- ggplot(TidyData, aes(year, Emissions, color=type)) + geom_point()
 plot <- plot + facet_grid(.~type) + geom_smooth(method="lm")
-plot <- plot + labs(title=expression("Emissions of PM"[2.5]*" By Year by Type for Baltimore City"), x="Years", y=expression("Total Emission of PM"[2.5]))
+plot <- plot + labs(title=expression("Emissions of PM"[2.5]*" By Year by Type for Baltimore City"), x=expression("Type of PM"[2.5]*"Partice - Years"), y=expression("Total Emission of PM"[2.5]*" per Year"))
 plot
 dev.off()
