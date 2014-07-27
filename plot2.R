@@ -9,7 +9,7 @@ SCC <- readRDS("../Source_Classification_Code.rds")
 NEI$year <- as.factor(NEI$year)
 NEI$SCC <- as.factor(NEI$SCC)
 
-#We melt the data by year and SCC
+#We melt the data by year and SCC and subset to only grab Baltimore City (fips=24510)
 meltData <- melt(NEI[NEI$fips=="24510",], id.vars=c("year","SCC"), measure.vars=c("Emissions"))
 
 #We reshape the data by year adding all the values for each year.
