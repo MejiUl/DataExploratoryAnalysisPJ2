@@ -44,8 +44,10 @@ names(EmissionsByYear) <- c("Year", "CoalEmissions", "NonCoalEmissions")
 
 png(file="plot4.png", width=960, height=960)
 #with(mEmissionsByYear[mEmissionsByYear$variable=="CoalEmissions",]   , plot(Year, value, type="n"))
-var <- ggplot(EmissionsByYear, aes(x=Year, y=CoalEmissions, size=5, color="blue"))
-var + geom_point()
+plot <- ggplot(EmissionsByYear, aes(x=Year, y=CoalEmissions))
+plot <- plot + geom_point(size=3, color="steelblue")
+plot <-plot + labs(title=expression("Total Coal-Combustion PM"[2.5]*" Emissions by Year"), x="Year", y=expression("Total Emissions of PM"[2.5]))
+plot
 #with(mEmissionsByYear[mEmissionsByYear$variable=="NonCoalEmissions",], lines(Year, value, type="p", col="blue"))
 dev.off()
 
