@@ -29,11 +29,13 @@ NEI <- NEI[NEI$fips=="24510",]
 
 NEISCC <- merge(NEI, SCC, by.x="SCC", by.y="SCC")
 
-with(NEISCC, hist(Emissions, breaks=15))
-
-
-median(NEISCC$Emissions)
-
+#with(NEISCC, hist(Emissions, breaks=15))
+png("plot5.png", width=960, height=960)
+plot <- ggplot(NEISCC, aes(year, Emissions))
+plot <- plot + geom_boxplot(fill="#CED8F6", outlier.size=1.5, outlier.colour="blue") + ylim(0,0.4)
+plot <- plot + labs(title=expression("Motor Vehicles Emissions of PM"[2.5]* " in Baltimore"), x="Year", y=expression("Emission of PM"[2.5]*" Particles"))
+plot
+dev.off()
 
 
 
